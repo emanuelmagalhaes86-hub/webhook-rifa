@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
 
     const response = await fetch(url, {
       headers: {
-        'Authorization': 'Bearer APP_USR-8882432410460621-112711-925e048e3b2cb871b6ca0cca3674120c-3882436074'
+        'Authorization': 'Bearer APP_USR-1986219901181740-112711-84008de46114eb1134e6d00c7c7e27ad-1211675548'
       }
     });
 
