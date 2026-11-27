@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
   const { txid, amount } = req.query;
 
   if (!amount) {
-    return res.status(200).json({ pago: false, status: 'missing_amount' });
+    return res.status(200).json({ pago: false, status: 'PENDING' });
   }
 
   try {
@@ -34,7 +34,10 @@ module.exports = async (req, res) => {
         pago: true,
         paid: true,
         approved: true,
-        status: 'approved',
+        confirmed: true,
+        success: true,
+        status: 'PAID',
+        payment_status: 'approved',
         txid: txid || ''
       });
     }
@@ -43,7 +46,9 @@ module.exports = async (req, res) => {
       pago: false,
       paid: false,
       approved: false,
-      status: 'pending'
+      confirmed: false,
+      success: false,
+      status: 'PENDING'
     });
   } catch (error) {
     return res.status(200).json({ pago: false, erro: error.message });
